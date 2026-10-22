@@ -23,4 +23,4 @@ Run `npx tsc --noEmit && npm run build` before publishing. The generated `dist/`
 
 ## Application use
 
-Link the specific project branch shown above. For a résumé bullet, include the metric's dataset and sample size, and use the linked evaluation artifact as the source. For a demo, show the local UI or a short screen recording and then open the relevant code and evaluation file. Verify every hosted demo yourself immediately before sending an application, since free hosting can sleep or change.
+Link the specific project branch shown above. For a résumé bullet, include the metric's dataset and sample size, and use the linked evaluation artifact as the source. For a demo, show the local UI or a short screen recording and then open the relevant code and evaluation file. Existing Render URLs did not respond during the October 22, 2026 check, so this showcase currently links source code and evidence instead of advertising them as live demos.
