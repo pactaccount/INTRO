@@ -1,5 +1,7 @@
 # Abhinav Vummidichetty - AI Project Showcase
 
+[AI project proof index for role-specific résumé selection](PROJECT_EVIDENCE_INDEX.md)
+
 This portfolio is a job application guide to five selected AI projects. Each case study links to source code and states what the recorded evidence does and does not support. The [AI-focused resume](public/resume-ai.pdf) uses the same claims.
 
 | Project | What to inspect | Evidence |
