@@ -87,7 +87,7 @@ export const projects: Project[] = [
     secondaryImage: '/images/argus-overview.svg',
     imageKind: 'illustration',
     github: 'https://github.com/pactaccount/Industrial-Anomaly-Detection/tree/feature/product-rebuild',
-    evidenceUrl: 'https://github.com/pactaccount/Industrial-Anomaly-Detection/blob/feature/product-rebuild/results/mvtec_resnet18.json',
+    evidenceUrl: 'https://github.com/pactaccount/Industrial-Anomaly-Detection/blob/feature/product-rebuild/docs/benchmark_summary.json',
     evaluations: [
       'Full 15-category MVTec AD run: 0.9805 image AUROC and 1.05% false positive rate in the recorded benchmark artifact.',
       'Three-category CPU subset: 0.9937 pixel AUROC and 0.8095 AUPRO, with 34 ms per part measured locally.',
@@ -170,7 +170,7 @@ export const projects: Project[] = [
     secondaryImage: '/images/rag_pipeline_secondary_1789861383016.jpg',
     imageKind: 'screenshot',
     github: 'https://github.com/pactaccount/production-rag-pipeline/tree/demo-readiness-20261022',
-    evidenceUrl: 'https://github.com/pactaccount/production-rag-pipeline/blob/demo-readiness-20261022/eval/eval_results.json',
+    evidenceUrl: 'https://github.com/pactaccount/production-rag-pipeline/blob/demo-readiness-20261022/eval/smoke_report.json',
     evaluations: [
       'An LLM-judge evaluation script exists, but the checked-in report has six generated questions and no query-level details.',
       'The current report does not support a claim of high retrieval accuracy or low hallucination rate.',
