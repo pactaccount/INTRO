@@ -27,22 +27,22 @@ export function Home() {
         <div className="hero-gridline" aria-hidden="true" />
         <div className="hero-copy">
           <Reveal><p className="eyebrow"><span className="status-dot" /><span className="eyebrow-name">Abhinav Vummidichetty /</span> AI Engineer / Autonomous Agents & GenAI</p></Reveal>
-          <Reveal delay="delay-1"><h1>AI Engineer<br /><em>building agentic workflows.</em></h1></Reveal>
-          <Reveal delay="delay-2"><p className="hero-intro">I build intelligent, agent-driven workflows and Generative AI applications that solve real-world problems.</p></Reveal>
+          <Reveal delay="delay-1"><h1>AI Engineer<br /><em>building measurable systems.</em></h1></Reveal>
+          <Reveal delay="delay-2"><p className="hero-intro">I build applied AI systems with reproducible evaluations, clear failure modes, and usable product workflows.</p></Reveal>
           <Reveal delay="delay-3" className="hero-actions"><button className="button button-primary" onClick={() => goTo("projects")}>View projects <Icon name="arrow-right" size={16} /></button><button className="text-link" onClick={() => goTo("contact")}>Contact me <Icon name="arrow-up-right" size={15} /></button></Reveal>
           <Reveal delay="delay-4" className="hero-footnote"><span>Currently building with</span><span className="micro-stack">Python <i /> PyTorch <i /> LLMs</span></Reveal>
         </div>
         <Reveal className="terminal-wrap" delay="delay-2">
           <div className="terminal-orbit orbit-one" /><div className="terminal-orbit orbit-two" />
           <div className="terminal-window" aria-label="Animated AI systems terminal preview">
-            <div className="terminal-topbar"><div className="window-dots"><i /><i /><i /></div><span className="terminal-label">inference / live</span><span className="terminal-time">00:04:28</span></div>
+            <div className="terminal-topbar"><div className="window-dots"><i /><i /><i /></div><span className="terminal-label">workflow / illustration</span><span className="terminal-time">DEMO</span></div>
             <div className="terminal-body">
               <div className="terminal-line muted"><span>01</span> <b>from</b> langgraph.graph <b>import</b> StateGraph</div><div className="terminal-line muted"><span>02</span> <b>from</b> typing <b>import</b> TypedDict</div><div className="terminal-line blank"><span>03</span></div><div className="terminal-line"><span>04</span> <b>class</b> <strong>AgentState</strong>(TypedDict):</div><div className="terminal-line indent"><span>05</span> <em>query</em>: str</div><div className="terminal-line indent"><span>06</span> <em>sql_valid</em>: bool</div><div className="terminal-line blank"><span>07</span></div><div className="terminal-line"><span>08</span> workflow = StateGraph(AgentState)</div><div className="terminal-line pulse-line"><span>09</span> workflow.add_node(<mark>"generate_sql"</mark>, sql_node<span className="cursor-block" />)</div>
               <div className="terminal-output"><span className="output-pip">&gt;</span><span>output</span><strong>sql_valid: True</strong></div><div className="terminal-signal"><span>signal strength</span><div className="signal-bars"><i /><i /><i /><i /><i /><i /><i /></div><strong>STABLE</strong></div>
             </div>
-            <div className="terminal-footer"><span><i className="live-pip" /> model online</span><span>latency <b>128ms</b></span><span>tokens <b>1.2k</b></span></div>
+            <div className="terminal-footer"><span><i className="live-pip" /> illustrative trace</span><span>measured results in project pages</span></div>
           </div>
-          <div className="terminal-caption"><span>01 / 03</span><span>production evaluation loop</span></div>
+          <div className="terminal-caption"><span>01 / 05</span><span>project evidence below</span></div>
         </Reveal>
       </section>
 
@@ -50,14 +50,14 @@ export function Home() {
         <Reveal className="section-kicker"><span>01</span><span>PROFILE</span></Reveal>
         <div className="intro-grid">
           <Reveal><h2>AI systems<br /><em>for real work.</em></h2></Reveal>
-          <Reveal delay="delay-1" className="intro-body"><p>I am an AI Engineer specializing in autonomous agents, retrieval-augmented generation (RAG), and deterministic workflows.</p><p>I focus on moving complex Generative AI prototypes into reliable production systems, with experience building enterprise RAG pipelines, text-to-SQL agents, and secure clinical chatbots.</p></Reveal>
+          <Reveal delay="delay-1" className="intro-body"><p>I work across multimodal retrieval, computer vision, RAG, and agent workflows.</p><p>My projects pair working interfaces with benchmarks, tests, and explicit limits on what the evidence shows.</p></Reveal>
           <Reveal delay="delay-2" className="intro-ascii"><span>01</span><pre>{"  .----------------.\n /  AGENT IN LOOP  /\n'----------------'\n       |  ^  |\n       | / \\ |\n    ___|     |___\n   /   |     |   \\ \n  /____|_____|____\\"}</pre><small>agent-centric machine learning</small></Reveal>
         </div>
       </section>
 
       <section className="work section-pad" id="projects">
         <Reveal className="section-kicker"><span>02</span><span>PROJECTS</span><span className="kicker-rule" /></Reveal>
-        <div className="work-heading"><Reveal><h2>Projects and<br /><em>outcomes.</em></h2></Reveal><Reveal delay="delay-1"><p>Selected production systems covering retrieval, generative media, and model observability.</p></Reveal></div>
+        <div className="work-heading"><Reveal><h2>Projects and<br /><em>outcomes.</em></h2></Reveal><Reveal delay="delay-1"><p>Selected systems spanning video search, visual inspection, agents, and document retrieval.</p></Reveal></div>
         
         <div className="project-showcase-list" style={{ display: 'flex', flexDirection: 'column', gap: '100px', marginTop: '40px' }}>
           {projects.map((project, index) => (
@@ -67,10 +67,21 @@ export function Home() {
                 <img src={project.mainImage} alt={project.title} className="showcase-main-img" style={{ cursor: 'pointer', transition: 'transform 0.3s ease' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.02)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'} />
               </Link>
               <div className="project-showcase-right">
-                <h3 className="showcase-title">{project.title}</h3>
-                <Link to={`/projects/${project.id}`} className="showcase-link">View product &rarr;</Link>
-                <img src={project.secondaryImage} alt={`${project.title} secondary interface`} className="showcase-secondary-img" />
+                <Link to={`/projects/${project.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <h3
+                    className="showcase-title"
+                    onMouseOver={(e) => e.currentTarget.style.color = project.theme.accent}
+                    onMouseOut={(e) => e.currentTarget.style.color = 'inherit'}
+                    style={{ transition: 'color 0.3s ease' }}
+                  >
+                    {project.title}
+                  </h3>
+                </Link>
+                <Link to={`/projects/${project.id}`} style={{ display: 'block' }}>
+                  <img src={project.secondaryImage} alt={`${project.title} secondary interface`} className="showcase-secondary-img" style={{ cursor: 'pointer', transition: 'transform 0.3s ease' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.02)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'} />
+                </Link>
                 <p className="showcase-desc">{project.description}</p>
+                <p className="eyebrow" style={{ marginTop: '1rem' }}>{project.metric}</p>
               </div>
             </Reveal>
           ))}

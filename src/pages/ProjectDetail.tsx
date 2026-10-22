@@ -69,89 +69,16 @@ const DiagramStyles = () => (
   `}</style>
 );
 
-const ArchitectureDiagram = ({ projectId }: { projectId: string }) => {
-  if (projectId === "rag-pipeline") {
-    return (
-      <div className="diagram-container">
-        <div className="diagram-row">
-          <div className="diagram-node"><span>Ingestion Layer</span>LlamaParse PDF Extraction</div>
-        </div>
-        <div className="diagram-arrow"><Icon name="arrow-down" size={24} /></div>
-        <div className="diagram-row">
-          <div className="diagram-node" style={{ borderColor: 'var(--line)' }}><span>Processing</span>Sentence Window Chunking</div>
-          <div className="diagram-node" style={{ borderColor: 'var(--line)' }}><span>Embedding</span>Cohere Models</div>
-        </div>
-        <div className="diagram-arrow"><Icon name="arrow-down" size={24} /></div>
-        <div className="diagram-row">
-          <div className="diagram-node"><span>Vector Database</span>Qdrant Cloud</div>
-        </div>
-        <div className="diagram-arrow"><Icon name="arrow-down" size={24} /></div>
-        <div className="diagram-row">
-          <div className="diagram-node" style={{ borderColor: 'var(--line)' }}><span>Retrieval</span>Semantic Search</div>
-          <div className="diagram-node" style={{ borderColor: 'var(--line)' }}><span>Re-Ranking</span>Cross-Encoder Rescoring</div>
-        </div>
-        <div className="diagram-arrow"><Icon name="arrow-down" size={24} /></div>
-        <div className="diagram-row">
-          <div className="diagram-node" style={{ backgroundColor: 'var(--project-accent)', color: '#000', borderColor: 'transparent' }}><span>Generation</span>LLM Output</div>
-        </div>
+const ArchitectureDiagram = ({ stages }: { stages: { label: string; detail: string }[] }) => (
+  <div className="diagram-container">
+    {stages.map((stage, index) => (
+      <div key={stage.label} style={{ display: 'contents' }}>
+        {index > 0 && <div className="diagram-arrow"><Icon name="arrow-down" size={24} /></div>}
+        <div className="diagram-row"><div className="diagram-node"><span>{stage.label}</span>{stage.detail}</div></div>
       </div>
-    );
-  }
-
-  if (projectId === "sql-agent") {
-    return (
-      <div className="diagram-container">
-        <div className="diagram-row">
-          <div className="diagram-node"><span>User Input</span>Natural Language Query</div>
-        </div>
-        <div className="diagram-arrow"><Icon name="arrow-down" size={24} /></div>
-        <div className="diagram-row">
-          <div className="diagram-node" style={{ borderColor: 'var(--line)' }}><span>Router</span>Semantic Cache Check</div>
-          <div className="diagram-node" style={{ borderColor: 'var(--line)' }}><span>Schema RAG</span>Qdrant Vector Search</div>
-        </div>
-        <div className="diagram-arrow"><Icon name="arrow-down" size={24} /></div>
-        <div className="diagram-row">
-          <div className="diagram-node"><span>State Machine</span>LangGraph Agent Loop</div>
-        </div>
-        <div className="diagram-arrow"><Icon name="arrow-down" size={24} /></div>
-        <div className="diagram-row">
-          <div className="diagram-node" style={{ borderColor: 'var(--line)' }}><span>Validation</span>Syntax & Security Check</div>
-          <div className="diagram-node" style={{ borderColor: 'var(--line)' }}><span>Execution</span>HITL DB Query</div>
-        </div>
-        <div className="diagram-arrow"><Icon name="arrow-down" size={24} /></div>
-        <div className="diagram-row">
-          <div className="diagram-node" style={{ backgroundColor: 'var(--project-accent)', color: '#000', borderColor: 'transparent' }}><span>Delivery</span>Formatted Results</div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="diagram-container">
-      <div className="diagram-row">
-        <div className="diagram-node"><span>Client Interface</span>React Dashboard</div>
-      </div>
-      <div className="diagram-arrow"><Icon name="arrow-down" size={24} /></div>
-      <div className="diagram-row">
-        <div className="diagram-node"><span>Orchestrator</span>Triage Agent (LangGraph)</div>
-      </div>
-      <div className="diagram-arrow"><Icon name="arrow-down" size={24} /></div>
-      <div className="diagram-row">
-        <div className="diagram-node" style={{ borderColor: 'var(--line)' }}><span>Specialist</span>Action Agent</div>
-        <div className="diagram-node" style={{ borderColor: 'var(--line)' }}><span>Specialist</span>Policy Agent</div>
-        <div className="diagram-node" style={{ borderColor: 'var(--line)' }}><span>Specialist</span>Emergency Agent</div>
-      </div>
-      <div className="diagram-arrow"><Icon name="arrow-down" size={24} /></div>
-      <div className="diagram-row">
-        <div className="diagram-node" style={{ borderColor: 'var(--line)' }}><span>Protocol</span>Model Context Protocol</div>
-      </div>
-      <div className="diagram-arrow"><Icon name="arrow-down" size={24} /></div>
-      <div className="diagram-row">
-        <div className="diagram-node" style={{ backgroundColor: 'var(--project-accent)', color: '#000', borderColor: 'transparent' }}><span>Storage</span>MongoDB Patient Records</div>
-      </div>
-    </div>
-  );
-};
+    ))}
+  </div>
+);
 
 export function ProjectDetail() {
   const { id } = useParams();
@@ -198,14 +125,7 @@ export function ProjectDetail() {
 
           {/* METADATA GRID */}
           <Reveal delay="delay-2" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "3rem", paddingTop: "3rem", borderTop: "1px solid var(--project-border)" }}>
-            <div>
-              <h4 style={{ fontFamily: "var(--mono)", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--project-accent)", marginBottom: "1rem" }}>My Role</h4>
-              <p style={{ margin: 0, fontSize: "1.1rem" }}>{project.role}</p>
-            </div>
-            <div>
-              <h4 style={{ fontFamily: "var(--mono)", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--project-accent)", marginBottom: "1rem" }}>Timeline</h4>
-              <p style={{ margin: 0, fontSize: "1.1rem" }}>{project.timeline}</p>
-            </div>
+
             <div>
               <h4 style={{ fontFamily: "var(--mono)", fontSize: "10px", textTransform: "uppercase", letterSpacing: "0.1em", color: "var(--project-accent)", marginBottom: "1rem" }}>Core Tools</h4>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
@@ -220,19 +140,18 @@ export function ProjectDetail() {
       <section style={{ padding: "4rem 0", background: "var(--ink-soft)" }}>
         <Reveal>
           <div style={{ maxWidth: "1600px", margin: "0 auto", padding: "0 24px" }}>
-            <img src={project.mainImage} alt={project.title} style={{ width: "100%", borderRadius: "16px", boxShadow: "0 30px 80px rgba(0,0,0,0.6)" }} />
+            <img src={project.mainImage} alt={`${project.title} ${project.imageKind === 'illustration' ? 'system illustration' : 'interface'}`} style={{ width: "100%", borderRadius: "16px", boxShadow: "0 30px 80px rgba(0,0,0,0.6)" }} />
           </div>
         </Reveal>
       </section>
+
+      {project.imageKind === 'illustration' && <p style={{ textAlign: 'center', color: 'var(--project-text-dim)', margin: '-2rem 0 2rem' }}>System illustration · view source and evaluation for product evidence</p>}
 
       {/* PROJECT BACKGROUND */}
       <section className="section-pad" style={{ padding: "8rem 0" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <Reveal>
             <h2 style={{ fontSize: "2.5rem", marginBottom: "2rem", fontWeight: 400, letterSpacing: "-0.03em", color: "var(--project-accent)" }}>Project Background</h2>
-            <p style={{ fontSize: "1.25rem", lineHeight: "1.8", color: "var(--project-text-dim)", marginBottom: "2rem" }}>
-              {project.problemStatement}
-            </p>
             <p style={{ fontSize: "1.25rem", lineHeight: "1.8", color: "var(--project-text)", marginBottom: "4rem" }}>
               {project.longDescription}
             </p>
@@ -249,7 +168,7 @@ export function ProjectDetail() {
               {project.architecture}
             </p>
             
-            <ArchitectureDiagram projectId={project.id} />
+            <ArchitectureDiagram stages={project.architectureStages} />
           </Reveal>
         </div>
       </section>
@@ -289,6 +208,23 @@ export function ProjectDetail() {
         </div>
       </section>
 
+      {/* DATASETS & SOURCES */}
+      <section className="section-pad" style={{ padding: "8rem 0", background: "var(--ink-soft)", borderTop: "1px solid var(--line)" }}>
+        <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+          <Reveal>
+            <h2 style={{ fontSize: "2.5rem", marginBottom: "3rem", fontWeight: 400, letterSpacing: "-0.03em", color: "var(--project-accent)" }}>Datasets & Data Sources</h2>
+            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+              {project.datasets?.map((dataset, idx) => (
+                <div key={idx} style={{ display: "flex", alignItems: "flex-start", gap: "1rem", background: "var(--project-bg)", border: "1px solid var(--project-border)", padding: "1.5rem 2rem", borderRadius: "12px", borderLeft: "4px solid var(--project-accent)" }}>
+                  <Icon name="check" size={20} color="var(--project-accent)" />
+                  <p style={{ margin: 0, color: "var(--project-text)", fontSize: "1.15rem", lineHeight: "1.6" }}>{dataset}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* USE CASES */}
       <section className="section-pad" style={{ padding: "8rem 0", background: "var(--ink-soft)", borderTop: "1px solid var(--line)" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
@@ -310,11 +246,11 @@ export function ProjectDetail() {
       </section>
 
       {/* CONCEPT GALLERY */}
-      <section className="section-pad" style={{ padding: "8rem 0", borderTop: "1px solid var(--line)" }}>
+      {project.aiImages.length > 0 && <section className="section-pad" style={{ padding: "8rem 0", borderTop: "1px solid var(--line)" }}>
         <div style={{ maxWidth: "1400px", margin: "0 auto" }}>
           <Reveal>
-            <h2 style={{ fontSize: "2.5rem", marginBottom: "1.5rem", fontWeight: 400, letterSpacing: "-0.04em", textAlign: "center" }}>Active UI States</h2>
-            <p style={{ textAlign: "center", color: "var(--project-text-dim)", marginBottom: "4rem", fontSize: "1.15rem" }}>Simulated environments demonstrating real-world data processing.</p>
+            <h2 style={{ fontSize: "2.5rem", marginBottom: "1.5rem", fontWeight: 400, letterSpacing: "-0.04em", textAlign: "center" }}>Interface concepts</h2>
+            <p style={{ textAlign: "center", color: "var(--project-text-dim)", marginBottom: "4rem", fontSize: "1.15rem" }}>Concept visuals; repository artifacts show implementation and evaluation.</p>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(500px, 1fr))", gap: "2rem" }}>
               {project.aiImages.map((imgSrc, idx) => (
                 <div key={idx} style={{ borderRadius: "16px", overflow: "hidden", border: "1px solid var(--project-border)", boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}>
@@ -324,19 +260,20 @@ export function ProjectDetail() {
             </div>
           </Reveal>
         </div>
-      </section>
+      </section>}
 
       {/* ACTION FOOTER */}
       <section className="section-pad" style={{ padding: "8rem 0", textAlign: "center" }}>
         <Reveal>
           <h2 style={{ fontSize: "3rem", marginBottom: "3rem", fontWeight: 400, letterSpacing: "-0.03em" }}>Explore the system.</h2>
           <div style={{ display: "flex", gap: "1.5rem", justifyContent: "center", flexWrap: "wrap" }}>
-            <a href={project.link} target="_blank" rel="noreferrer" style={{ background: "var(--project-accent)", color: "#000", display: "inline-flex", alignItems: "center", gap: "18px", padding: "0 32px", minHeight: "56px", fontFamily: "var(--mono)", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.1em", borderRadius: "100px", transition: "transform 0.2s ease" }} onMouseOver={e => e.currentTarget.style.transform = 'translateY(-3px)'} onMouseOut={e => e.currentTarget.style.transform = 'translateY(0)'}>
+            {project.link && <a href={project.link} target="_blank" rel="noreferrer" style={{ background: "var(--project-accent)", color: "#000", display: "inline-flex", alignItems: "center", gap: "18px", padding: "0 32px", minHeight: "56px", fontFamily: "var(--mono)", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.1em", borderRadius: "100px", transition: "transform 0.2s ease" }} onMouseOver={e => e.currentTarget.style.transform = 'translateY(-3px)'} onMouseOut={e => e.currentTarget.style.transform = 'translateY(0)'}>
               View Live Product <Icon name="arrow-up-right" size={16} />
-            </a>
+            </a>}
             <a href={project.github} target="_blank" rel="noreferrer" style={{ background: "transparent", color: "var(--project-text)", border: "1px solid var(--project-border)", display: "inline-flex", alignItems: "center", gap: "18px", padding: "0 32px", minHeight: "56px", fontFamily: "var(--mono)", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.1em", borderRadius: "100px", transition: "transform 0.2s ease" }} onMouseOver={e => e.currentTarget.style.transform = 'translateY(-3px)'} onMouseOut={e => e.currentTarget.style.transform = 'translateY(0)'}>
               View Source Code <Icon name="github" size={16} />
             </a>
+            {project.evidenceUrl && <a href={project.evidenceUrl} target="_blank" rel="noreferrer" style={{ color: "var(--project-text)", border: "1px solid var(--project-border)", display: "inline-flex", alignItems: "center", padding: "0 24px", minHeight: "56px", fontFamily: "var(--mono)", fontSize: "11px", textTransform: "uppercase", letterSpacing: "0.1em", borderRadius: "100px" }}>View evidence <Icon name="arrow-up-right" size={16} /></a>}
           </div>
         </Reveal>
       </section>
