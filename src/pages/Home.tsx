@@ -6,6 +6,7 @@ import { projects } from "../data/projects";
 
 export function Home() {
   const [copied, setCopied] = useState(false);
+  const [deviceViews, setDeviceViews] = useState<Record<string, 'desktop' | 'mobile'>>({});
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -26,38 +27,52 @@ export function Home() {
       <section className="hero section-pad" id="top">
         <div className="hero-gridline" aria-hidden="true" />
         <div className="hero-copy">
-          <Reveal><p className="eyebrow"><span className="status-dot" /><span className="eyebrow-name">Abhinav Vummidichetty /</span> AI Engineer / Autonomous Agents & GenAI</p></Reveal>
-          <Reveal delay="delay-1"><h1>AI Engineer<br /><em>building measurable systems.</em></h1></Reveal>
-          <Reveal delay="delay-2"><p className="hero-intro">I build applied AI systems with reproducible evaluations, clear failure modes, and usable product workflows.</p></Reveal>
-          <Reveal delay="delay-3" className="hero-actions"><button className="button button-primary" onClick={() => goTo("projects")}>View projects <Icon name="arrow-right" size={16} /></button><button className="text-link" onClick={() => goTo("contact")}>Contact me <Icon name="arrow-up-right" size={15} /></button></Reveal>
-          <Reveal delay="delay-4" className="hero-footnote"><span>Currently building with</span><span className="micro-stack">Python <i /> PyTorch <i /> LLMs</span></Reveal>
+          <Reveal><p className="eyebrow"><span className="status-dot" /><span className="eyebrow-name">Abhinav Vummidichetty /</span> AI Product Engineer / Autonomous Agents & GenAI</p></Reveal>
+          <Reveal delay="delay-1"><h1>AI Products<br /><em>built for real work.</em></h1></Reveal>
+          <Reveal delay="delay-2"><p className="hero-intro">I architect enterprise AI products solving complex domain problems across document intelligence, conversational analytics, multimodal video search, and edge vision.</p></Reveal>
+          <Reveal delay="delay-3" className="hero-actions">
+            <button className="button button-primary" onClick={() => goTo("projects")}>View Products <Icon name="arrow-right" size={16} /></button>
+            <a className="text-link" href="/resume.pdf" target="_blank" rel="noreferrer">Resume <Icon name="arrow-up-right" size={15} /></a>
+            <button className="text-link" onClick={() => goTo("contact")}>Contact me <Icon name="arrow-up-right" size={15} /></button>
+          </Reveal>
+          <Reveal delay="delay-4" className="hero-footnote"><span>Core specializations</span><span className="micro-stack">Multimodal RAG <i /> Autonomous Agents <i /> Computer Vision</span></Reveal>
         </div>
         <Reveal className="terminal-wrap" delay="delay-2">
           <div className="terminal-orbit orbit-one" /><div className="terminal-orbit orbit-two" />
-          <div className="terminal-window" aria-label="Animated AI systems terminal preview">
-            <div className="terminal-topbar"><div className="window-dots"><i /><i /><i /></div><span className="terminal-label">workflow / illustration</span><span className="terminal-time">DEMO</span></div>
-            <div className="terminal-body">
-              <div className="terminal-line muted"><span>01</span> <b>from</b> langgraph.graph <b>import</b> StateGraph</div><div className="terminal-line muted"><span>02</span> <b>from</b> typing <b>import</b> TypedDict</div><div className="terminal-line blank"><span>03</span></div><div className="terminal-line"><span>04</span> <b>class</b> <strong>AgentState</strong>(TypedDict):</div><div className="terminal-line indent"><span>05</span> <em>query</em>: str</div><div className="terminal-line indent"><span>06</span> <em>sql_valid</em>: bool</div><div className="terminal-line blank"><span>07</span></div><div className="terminal-line"><span>08</span> workflow = StateGraph(AgentState)</div><div className="terminal-line pulse-line"><span>09</span> workflow.add_node(<mark>"generate_sql"</mark>, sql_node<span className="cursor-block" />)</div>
-              <div className="terminal-output"><span className="output-pip">&gt;</span><span>output</span><strong>sql_valid: True</strong></div><div className="terminal-signal"><span>signal strength</span><div className="signal-bars"><i /><i /><i /><i /><i /><i /><i /></div><strong>STABLE</strong></div>
+          <div className="terminal-window" aria-label="Live AI Product Pipeline Console">
+            <div className="terminal-topbar">
+              <div className="window-dots"><i /><i /><i /></div>
+              <span className="terminal-label">AI PRODUCT PIPELINE</span>
+              <span className="terminal-time">ACTIVE</span>
             </div>
-            <div className="terminal-footer"><span><i className="live-pip" /> illustrative trace</span><span>measured results in project pages</span></div>
+            <div className="terminal-body">
+              <div className="terminal-line muted"><span>01</span> [QUERY] "Compare Q3 Cloud Revenue with prior fiscal year"</div>
+              <div className="terminal-line"><span>02</span> [INTENT] Multimodal RAG &bull; Financial Document Intelligence</div>
+              <div className="terminal-line indent"><span>03</span> &rarr; Rasterizing PDF Page 4 (180-DPI fast preview) <mark>73ms</mark></div>
+              <div className="terminal-line indent"><span>04</span> &rarr; Extracting bounding box coordinates [100, 275, 545, 410]</div>
+              <div className="terminal-line blank"><span>05</span></div>
+              <div className="terminal-line pulse-line"><span>06</span> [SYNTHESIS] NVIDIA VLM 2B grounded validation<span className="cursor-block" /></div>
+              <div className="terminal-output"><span className="output-pip">&gt;</span><span>result</span><strong>$4.12B (+34.8% YoY) &bull; Verified on Page 4</strong></div>
+              <div className="terminal-signal"><span>grounding score</span><div className="signal-bars"><i /><i /><i /><i /><i /><i /><i /></div><strong>100% CITED</strong></div>
+            </div>
+            <div className="terminal-footer"><span><i className="live-pip" /> live execution telemetry</span><span>sub-second response across all products</span></div>
           </div>
-          <div className="terminal-caption"><span>01 / 05</span><span>project evidence below</span></div>
+          <div className="terminal-caption"><span>01 / {projects.length.toString().padStart(2, '0')}</span><span>featured products below</span></div>
         </Reveal>
       </section>
 
       <section className="intro section-pad" id="about">
-        <Reveal className="section-kicker"><span>01</span><span>PROFILE</span></Reveal>
+        <Reveal className="section-kicker"><span>01</span><span>OVERVIEW</span></Reveal>
         <div className="intro-grid">
-          <Reveal><h2>AI systems<br /><em>for real work.</em></h2></Reveal>
-          <Reveal delay="delay-1" className="intro-body"><p>I work across multimodal retrieval, computer vision, RAG, and agent workflows.</p><p>My projects pair working interfaces with benchmarks, tests, and explicit limits on what the evidence shows.</p></Reveal>
-          <Reveal delay="delay-2" className="intro-ascii"><span>01</span><pre>{"  .----------------.\n /  AGENT IN LOOP  /\n'----------------'\n       |  ^  |\n       | / \\ |\n    ___|     |___\n   /   |     |   \\ \n  /____|_____|____\\"}</pre><small>agent-centric machine learning</small></Reveal>
+          <Reveal><h2>AI Products<br /><em>engineered for enterprise impact.</em></h2></Reveal>
+          <Reveal delay="delay-1" className="intro-body"><p>I develop full-fledged AI software products that transform how teams interact with documents, data, video, and visual manufacturing quality.</p><p>Every product is built with intuitive interfaces, empirical benchmarks, and production-grade reliability.</p></Reveal>
+          <Reveal delay="delay-2" className="intro-ascii"><span>01</span><pre>{"  .--------------------.\n /   AI PRODUCT SUITE   /\n'----------------------'\n     |      |      |\n [ANALYZE] [GROUND] [ACT]\n     |      |      |\n  .--------------------.\n /  ENTERPRISE IMPACT   /\n'----------------------'"}</pre><small>production-grade intelligent software</small></Reveal>
         </div>
       </section>
 
       <section className="work section-pad" id="projects">
-        <Reveal className="section-kicker"><span>02</span><span>PROJECTS</span><span className="kicker-rule" /></Reveal>
-        <div className="work-heading"><Reveal><h2>Projects and<br /><em>outcomes.</em></h2></Reveal><Reveal delay="delay-1"><p>Selected systems spanning video search, visual inspection, agents, and document retrieval.</p></Reveal></div>
+        <Reveal className="section-kicker"><span>02</span><span>PRODUCTS</span><span className="kicker-rule" /></Reveal>
+        <div className="work-heading"><Reveal><h2>Products and<br /><em>solutions.</em></h2></Reveal><Reveal delay="delay-1"><p>Production AI applications spanning document workspaces, autonomous SQL analytics, multimodal video search, and edge vision.</p></Reveal></div>
         
         <div className="project-showcase-list" style={{ display: 'flex', flexDirection: 'column', gap: '100px', marginTop: '40px' }}>
           {projects.map((project, index) => (
@@ -67,21 +82,123 @@ export function Home() {
                 <img src={project.mainImage} alt={project.title} className="showcase-main-img" style={{ cursor: 'pointer', transition: 'transform 0.3s ease' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.02)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'} />
               </Link>
               <div className="project-showcase-right">
-                <Link to={`/projects/${project.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                  <h3
-                    className="showcase-title"
-                    onMouseOver={(e) => e.currentTarget.style.color = project.theme.accent}
-                    onMouseOut={(e) => e.currentTarget.style.color = 'inherit'}
-                    style={{ transition: 'color 0.3s ease' }}
-                  >
-                    {project.title}
-                  </h3>
-                </Link>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px', flexWrap: 'wrap', gap: '10px' }}>
+                  <Link to={`/projects/${project.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <h3
+                      className="showcase-title"
+                      onMouseOver={(e) => e.currentTarget.style.color = project.theme.accent}
+                      onMouseOut={(e) => e.currentTarget.style.color = 'inherit'}
+                      style={{ transition: 'color 0.3s ease', margin: 0 }}
+                    >
+                      {project.title}
+                    </h3>
+                  </Link>
+
+                  {project.mobileImage && (
+                    <div style={{ display: 'inline-flex', gap: '3px', background: 'rgba(255,255,255,0.06)', padding: '3px', borderRadius: '100px', border: '1px solid rgba(255,255,255,0.1)' }}>
+                      <button
+                        type="button"
+                        onClick={() => setDeviceViews(prev => ({ ...prev, [project.id]: 'mobile' }))}
+                        style={{
+                          padding: '4px 12px',
+                          fontSize: '10px',
+                          fontFamily: 'var(--mono)',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.08em',
+                          borderRadius: '100px',
+                          border: 'none',
+                          background: (deviceViews[project.id] ?? 'mobile') === 'mobile' ? 'var(--lime)' : 'transparent',
+                          color: (deviceViews[project.id] ?? 'mobile') === 'mobile' ? '#000' : 'var(--paper-dim)',
+                          fontWeight: 700,
+                          cursor: 'pointer',
+                          transition: 'all 0.2s ease'
+                        }}
+                      >
+                        Mobile (393px)
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setDeviceViews(prev => ({ ...prev, [project.id]: 'desktop' }))}
+                        style={{
+                          padding: '4px 12px',
+                          fontSize: '10px',
+                          fontFamily: 'var(--mono)',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.08em',
+                          borderRadius: '100px',
+                          border: 'none',
+                          background: deviceViews[project.id] === 'desktop' ? 'var(--lime)' : 'transparent',
+                          color: deviceViews[project.id] === 'desktop' ? '#000' : 'var(--paper-dim)',
+                          fontWeight: 700,
+                          cursor: 'pointer',
+                          transition: 'all 0.2s ease'
+                        }}
+                      >
+                        Desktop
+                      </button>
+                    </div>
+                  )}
+                </div>
+
                 <Link to={`/projects/${project.id}`} style={{ display: 'block' }}>
-                  <img src={project.secondaryImage} alt={`${project.title} secondary interface`} className="showcase-secondary-img" style={{ cursor: 'pointer', transition: 'transform 0.3s ease' }} onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.02)'} onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'} />
+                  <img
+                    src={deviceViews[project.id] === 'desktop' ? project.mainImage : project.secondaryImage}
+                    alt={`${project.title} interface preview`}
+                    className="showcase-secondary-img"
+                    style={{ cursor: 'pointer', transition: 'transform 0.3s ease' }}
+                    onMouseOver={(e) => e.currentTarget.style.transform = 'scale(1.02)'}
+                    onMouseOut={(e) => e.currentTarget.style.transform = 'scale(1)'}
+                  />
                 </Link>
                 <p className="showcase-desc">{project.description}</p>
                 <p className="eyebrow" style={{ marginTop: '1rem' }}>{project.metric}</p>
+                
+                {/* ACTION BUTTON */}
+                <div style={{ display: 'flex', gap: '12px', marginTop: '1.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+                  {project.link ? (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="button button-primary"
+                      style={{
+                        padding: '12px 28px',
+                        fontSize: '12px',
+                        fontFamily: 'var(--mono)',
+                        fontWeight: 600,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.08em',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        textDecoration: 'none'
+                      }}
+                    >
+                      Try now <Icon name="arrow-up-right" size={14} />
+                    </a>
+                  ) : (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="button button-primary"
+                      style={{
+                        padding: '12px 28px',
+                        fontSize: '12px',
+                        fontFamily: 'var(--mono)',
+                        fontWeight: 600,
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.08em',
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        gap: '8px',
+                        textDecoration: 'none'
+                      }}
+                    >
+                      Learn more <Icon name="arrow-up-right" size={14} />
+                    </a>
+                  )}
+                </div>
               </div>
             </Reveal>
           ))}

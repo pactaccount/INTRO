@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="t d">
+  <title id="t">EventFace Consent Identification System</title>
+  <desc id="d">On-device biometric face verification using dlib 128-d embeddings, Euclidean distance, and Flask</desc>
+  <defs>
+    <linearGradient id="fbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#18181b"/>
+      <stop offset="100%" stop-color="#09090b"/>
+    </linearGradient>
+    <linearGradient id="fcard" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#27272a"/>
+      <stop offset="100%" stop-color="#18181b"/>
+    </linearGradient>
+    <linearGradient id="amberGlow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="680" rx="24" fill="url(#fbg)"/>
+  <rect x="25" y="25" width="1150" height="630" rx="18" fill="#121215" stroke="#27272a" stroke-width="1.5"/>
+
+  <!-- Top App Bar -->
+  <rect x="25" y="25" width="1150" height="64" rx="18" fill="#18181b" stroke="#27272a" stroke-width="1"/>
+  
+  <circle cx="65" cy="57" r="16" fill="#f59e0b"/>
+  <circle cx="65" cy="54" r="5" fill="#18181b"/>
+  <path d="M57 65 C57 60 73 60 73 65" stroke="#18181b" stroke-width="2" fill="none"/>
+  <text x="94" y="63" fill="#f4f4f5" font-family="-apple-system, sans-serif" font-size="20" font-weight="700">EventFace Biometric System</text>
+  <rect x="385" y="47" width="165" height="22" rx="11" fill="rgba(245, 158, 11, 0.15)" stroke="#f59e0b" stroke-width="1"/>
+  <text x="395" y="62" fill="#f59e0b" font-family="monospace" font-size="11" font-weight="600">ON-DEVICE · ZERO-CLOUD</text>
+
+  <rect x="915" y="44" width="130" height="26" rx="6" fill="#09090b" stroke="#27272a"/>
+  <circle cx="930" cy="57" r="4" fill="#10b981"/>
+  <text x="942" y="61" fill="#cbd5e1" font-family="monospace" font-size="11">d = 0.0000 Match</text>
+  <rect x="1055" y="43" width="100" height="28" rx="6" fill="url(#amberGlow)"/>
+  <text x="1075" y="61" fill="#451a03" font-family="-apple-system, sans-serif" font-size="12" font-weight="700">Check In</text>
+
+  <!-- Left: Live Verification Viewport -->
+  <rect x="45" y="105" width="580" height="525" rx="12" fill="url(#fcard)" stroke="#27272a"/>
+  <rect x="45" y="105" width="580" height="42" rx="12" fill="#202024" stroke="#27272a"/>
+  <text x="65" y="131" fill="#f4f4f5" font-family="-apple-system, sans-serif" font-size="13" font-weight="600">Live Camera Stream / Image Verification</text>
+  <text x="510" y="131" fill="#f59e0b" font-family="monospace" font-size="11">PORT 5000</text>
+
+  <!-- Viewport Frame -->
+  <rect x="75" y="165" width="520" height="340" rx="10" fill="#09090b" stroke="#3f3f46"/>
+  <!-- Target Reticle -->
+  <path d="M 235 220 L 215 220 L 215 240" stroke="#f59e0b" stroke-width="3" fill="none"/>
+  <path d="M 435 220 L 455 220 L 455 240" stroke="#f59e0b" stroke-width="3" fill="none"/>
+  <path d="M 235 440 L 215 440 L 215 420" stroke="#f59e0b" stroke-width="3" fill="none"/>
+  <path d="M 435 440 L 455 440 L 455 420" stroke="#f59e0b" stroke-width="3" fill="none"/>
+
+  <!-- Face Silhouette -->
+  <ellipse cx="335" cy="310" rx="65" ry="85" fill="#18181b" stroke="#71717a" stroke-dasharray="4 3"/>
+  <circle cx="310" cy="295" r="5" fill="#f59e0b"/>
+  <circle cx="360" cy="295" r="5" fill="#f59e0b"/>
+  <circle cx="335" cy="320" r="3" fill="#f59e0b"/>
+  <path d="M 320 345 Q 335 355 350 345" stroke="#f59e0b" stroke-width="2" fill="none"/>
+
+  <!-- Match Confirmation Banner -->
+  <rect x="185" y="465" width="300" height="28" rx="6" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981"/>
+  <text x="210" y="483" fill="#34d399" font-family="monospace" font-size="12" font-weight="700">IDENTITY CONFIRMED: ALICE (100%)</text>
+
+  <!-- Metric summary -->
+  <rect x="75" y="525" width="520" height="85" rx="8" fill="#18181b" stroke="#27272a"/>
+  <text x="95" y="552" fill="#fbbf24" font-family="monospace" font-size="11" font-weight="700">BIOMETRIC EXTRACTION METRICS</text>
+  <text x="95" y="572" fill="#a1a1aa" font-family="monospace" font-size="11">• 128-d dlib ResNet Embedding vector extracted in 18ms</text>
+  <text x="95" y="592" fill="#a1a1aa" font-family="monospace" font-size="11">• Euclidean Distance: 0.0000 (Safety Threshold: 0.55)</text>
+
+  <!-- Right: Attendee Database & Check-in Log -->
+  <rect x="645" y="105" width="510" height="525" rx="12" fill="url(#fcard)" stroke="#27272a"/>
+  <rect x="645" y="105" width="510" height="42" rx="12" fill="#202024" stroke="#27272a"/>
+  <text x="665" y="131" fill="#f4f4f5" font-family="-apple-system, sans-serif" font-size="13" font-weight="600">SQLite Attendee Log &amp; Consent Verification</text>
+
+  <rect x="665" y="165" width="470" height="70" rx="8" fill="#18181b" stroke="#27272a"/>
+  <circle cx="695" cy="200" r="18" fill="#3f3f46"/>
+  <text x="690" y="205" fill="#f4f4f5" font-family="sans-serif" font-size="12" font-weight="700">A</text>
+  <text x="730" y="193" fill="#f4f4f5" font-family="sans-serif" font-size="13" font-weight="600">Alice Johnson</text>
+  <text x="730" y="213" fill="#71717a" font-family="monospace" font-size="11">ID: #0482 · Consented Registration: Oct 2026</text>
+  <rect x="1040" y="187" width="80" height="24" rx="4" fill="#065f46"/>
+  <text x="1052" y="203" fill="#6ee7b7" font-family="monospace" font-size="10" font-weight="700">VERIFIED</text>
+
+  <rect x="665" y="245" width="470" height="70" rx="8" fill="#18181b" stroke="#27272a"/>
+  <circle cx="695" cy="280" r="18" fill="#3f3f46"/>
+  <text x="690" y="285" fill="#f4f4f5" font-family="sans-serif" font-size="12" font-weight="700">B</text>
+  <text x="730" y="273" fill="#f4f4f5" font-family="sans-serif" font-size="13" font-weight="600">Brian Miller</text>
+  <text x="730" y="293" fill="#71717a" font-family="monospace" font-size="11">ID: #0483 · Consented Registration: Oct 2026</text>
+  <rect x="1040" y="267" width="80" height="24" rx="4" fill="#065f46"/>
+  <text x="1052" y="283" fill="#6ee7b7" font-family="monospace" font-size="10" font-weight="700">VERIFIED</text>
+
+  <!-- Technical Privacy Guarantees -->
+  <rect x="665" y="335" width="470" height="180" rx="8" fill="#09090b" stroke="#27272a"/>
+  <text x="685" y="365" fill="#f59e0b" font-family="monospace" font-size="11" font-weight="700">SECURITY &amp; PRIVACY ARCHITECTURE</text>
+  <text x="685" y="395" fill="#e4e4e7" font-family="sans-serif" font-size="12">1. All 128-d biometric embeddings are calculated locally on device.</text>
+  <text x="685" y="420" fill="#e4e4e7" font-family="sans-serif" font-size="12">2. Zero external API calls or third-party cloud data persistence.</text>
+  <text x="685" y="445" fill="#e4e4e7" font-family="sans-serif" font-size="12">3. Immutable audit trail with cryptographic timestamps.</text>
+  <text x="685" y="470" fill="#e4e4e7" font-family="sans-serif" font-size="12">4. Automatic exclusion of unconsented visitors with 0.55 threshold.</text>
+
+  <text x="45" y="650" fill="#71717a" font-family="monospace" font-size="11">EVENTFACE · LOCAL CONSENT BIOMETRIC VERIFICATION · DLIB + FLASK + SQLITE</text>
+</svg>

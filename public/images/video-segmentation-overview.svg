@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" role="img" aria-labelledby="t d">
+  <title id="t">Video Segmentation and VLM Chaptering Engine</title>
+  <desc id="d">Real-time scene boundary detection with SSIM, HSV histograms, and Moondream2 VLM keyframe captioning</desc>
+  <defs>
+    <linearGradient id="vbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#030712"/>
+    </linearGradient>
+    <linearGradient id="vcard" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1f2937"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="tealGlow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0d9488"/>
+      <stop offset="100%" stop-color="#14b8a6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Canvas Frame -->
+  <rect width="1200" height="680" rx="24" fill="url(#vbg)"/>
+  <rect x="25" y="25" width="1150" height="630" rx="18" fill="#0b1320" stroke="#1f2937" stroke-width="1.5"/>
+
+  <!-- Top App Bar -->
+  <rect x="25" y="25" width="1150" height="64" rx="18" fill="#111827" stroke="#1f2937" stroke-width="1"/>
+  
+  <circle cx="65" cy="57" r="16" fill="#0d9488"/>
+  <polygon points="60,50 60,64 72,57" fill="#ffffff"/>
+  <text x="94" y="63" fill="#f9fafb" font-family="-apple-system, sans-serif" font-size="20" font-weight="700">Video Perception Pipeline</text>
+  <rect x="365" y="47" width="145" height="22" rx="11" fill="rgba(20, 184, 166, 0.15)" stroke="#14b8a6" stroke-width="1"/>
+  <text x="375" y="62" fill="#14b8a6" font-family="monospace" font-size="11" font-weight="600">SSIM + HSV + VLM</text>
+
+  <rect x="915" y="44" width="130" height="26" rx="6" fill="#030712" stroke="#1f2937"/>
+  <circle cx="930" cy="57" r="4" fill="#14b8a6"/>
+  <text x="942" y="61" fill="#cbd5e1" font-family="monospace" font-size="11">F1: 1.00 · 3.3 FPS</text>
+  <rect x="1055" y="43" width="100" height="28" rx="6" fill="url(#tealGlow)"/>
+  <text x="1073" y="61" fill="#042f2e" font-family="-apple-system, sans-serif" font-size="12" font-weight="700">Process Video</text>
+
+  <!-- Left: Scene Boundary Waveform & Timeline -->
+  <rect x="45" y="105" width="670" height="525" rx="12" fill="url(#vcard)" stroke="#1f2937"/>
+  <rect x="45" y="105" width="670" height="42" rx="12" fill="#162032" stroke="#1f2937"/>
+  <text x="65" y="131" fill="#e5e7eb" font-family="-apple-system, sans-serif" font-size="13" font-weight="600">Scene Cut Boundary Signal (SSIM vs HSV Delta)</text>
+  <text x="590" y="131" fill="#14b8a6" font-family="monospace" font-size="11">LIVE METRIC</text>
+
+  <!-- Metric Graph -->
+  <rect x="65" y="165" width="630" height="230" rx="8" fill="#030712" stroke="#374151"/>
+  <!-- Grid Lines -->
+  <line x1="65" y1="220" x2="695" y2="220" stroke="#1f2937" stroke-dasharray="4 4"/>
+  <line x1="65" y1="280" x2="695" y2="280" stroke="#1f2937" stroke-dasharray="4 4"/>
+  <line x1="65" y1="340" x2="695" y2="340" stroke="#1f2937" stroke-dasharray="4 4"/>
+  
+  <!-- Threshold Line -->
+  <line x1="65" y1="250" x2="695" y2="250" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="6 3"/>
+  <text x="75" y="244" fill="#ef4444" font-family="monospace" font-size="10" font-weight="600">CUT THRESHOLD: 0.65</text>
+
+  <!-- SSIM Signal Path -->
+  <path d="M 65 350 Q 110 350, 140 340 T 215 345 T 235 180 T 255 355 T 380 345 T 435 190 T 455 350 T 560 345 T 610 185 T 630 350 L 695 350" fill="none" stroke="#14b8a6" stroke-width="2.5"/>
+
+  <!-- Keyframe markers -->
+  <circle cx="235" cy="180" r="5" fill="#f59e0b"/>
+  <text x="215" y="170" fill="#f59e0b" font-family="monospace" font-size="10">Cut 1 (00:08)</text>
+  <circle cx="435" cy="190" r="5" fill="#f59e0b"/>
+  <text x="415" y="180" fill="#f59e0b" font-family="monospace" font-size="10">Cut 2 (00:34)</text>
+  <circle cx="610" cy="185" r="5" fill="#f59e0b"/>
+  <text x="590" y="175" fill="#f59e0b" font-family="monospace" font-size="10">Cut 3 (01:12)</text>
+
+  <!-- Filmstrip Timeline -->
+  <text x="65" y="425" fill="#9ca3af" font-family="-apple-system, sans-serif" font-size="12" font-weight="600">EXTRACTED KEYFRAMES &amp; BOUNDARIES</text>
+  
+  <rect x="65" y="440" width="145" height="100" rx="6" fill="#1e293b" stroke="#0d9488" stroke-width="2"/>
+  <rect x="75" y="450" width="125" height="60" rx="4" fill="#334155"/>
+  <text x="75" y="525" fill="#14b8a6" font-family="monospace" font-size="10" font-weight="700">00:00 - KEYFRAME 1</text>
+
+  <rect x="225" y="440" width="145" height="100" rx="6" fill="#1e293b" stroke="#0d9488" stroke-width="2"/>
+  <rect x="235" y="450" width="125" height="60" rx="4" fill="#334155"/>
+  <text x="235" y="525" fill="#14b8a6" font-family="monospace" font-size="10" font-weight="700">00:08 - KEYFRAME 2</text>
+
+  <rect x="385" y="440" width="145" height="100" rx="6" fill="#1e293b" stroke="#0d9488" stroke-width="2"/>
+  <rect x="395" y="450" width="125" height="60" rx="4" fill="#334155"/>
+  <text x="395" y="525" fill="#14b8a6" font-family="monospace" font-size="10" font-weight="700">00:34 - KEYFRAME 3</text>
+
+  <rect x="545" y="440" width="145" height="100" rx="6" fill="#1e293b" stroke="#0d9488" stroke-width="2"/>
+  <rect x="555" y="450" width="125" height="60" rx="4" fill="#334155"/>
+  <text x="555" y="525" fill="#14b8a6" font-family="monospace" font-size="10" font-weight="700">01:12 - KEYFRAME 4</text>
+
+  <!-- Right: VLM Chapter Enrichment -->
+  <rect x="735" y="105" width="420" height="525" rx="12" fill="url(#vcard)" stroke="#1f2937"/>
+  <rect x="735" y="105" width="420" height="42" rx="12" fill="#162032" stroke="#1f2937"/>
+  <text x="755" y="131" fill="#e5e7eb" font-family="-apple-system, sans-serif" font-size="13" font-weight="600">VLM Semantic Chapters (Moondream2)</text>
+
+  <!-- Chapter Card 1 -->
+  <rect x="755" y="165" width="380" height="95" rx="8" fill="#0f172a" stroke="#1e293b"/>
+  <rect x="770" y="177" width="60" height="20" rx="4" fill="rgba(20, 184, 166, 0.2)"/>
+  <text x="776" y="191" fill="#14b8a6" font-family="monospace" font-size="11" font-weight="700">00:08</text>
+  <text x="840" y="191" fill="#f3f4f6" font-family="-apple-system, sans-serif" font-size="13" font-weight="600">Speaker introductions</text>
+  <text x="770" y="222" fill="#9ca3af" font-family="sans-serif" font-size="12">Keynote speaker walks onto conference stage</text>
+  <text x="770" y="242" fill="#9ca3af" font-family="sans-serif" font-size="12">holding a presentation clicker facing the audience.</text>
+
+  <!-- Chapter Card 2 -->
+  <rect x="755" y="275" width="380" height="95" rx="8" fill="#0f172a" stroke="#1e293b"/>
+  <rect x="770" y="287" width="60" height="20" rx="4" fill="rgba(20, 184, 166, 0.2)"/>
+  <text x="776" y="301" fill="#14b8a6" font-family="monospace" font-size="11" font-weight="700">00:34</text>
+  <text x="840" y="301" fill="#f3f4f6" font-family="-apple-system, sans-serif" font-size="13" font-weight="600">Architecture Diagram Overview</text>
+  <text x="770" y="332" fill="#9ca3af" font-family="sans-serif" font-size="12">Slide showing modular neural pipeline and</text>
+  <text x="770" y="352" fill="#9ca3af" font-family="sans-serif" font-size="12">distributed processing components in detail.</text>
+
+  <!-- Chapter Card 3 -->
+  <rect x="755" y="385" width="380" height="95" rx="8" fill="#0f172a" stroke="#1e293b"/>
+  <rect x="770" y="397" width="60" height="20" rx="4" fill="rgba(20, 184, 166, 0.2)"/>
+  <text x="776" y="411" fill="#14b8a6" font-family="monospace" font-size="11" font-weight="700">01:12</text>
+  <text x="840" y="411" fill="#f3f4f6" font-family="-apple-system, sans-serif" font-size="13" font-weight="600">Benchmark Demonstrations</text>
+  <text x="770" y="442" fill="#9ca3af" font-family="sans-serif" font-size="12">Live comparison chart showing latency and</text>
+  <text x="770" y="462" fill="#9ca3af" font-family="sans-serif" font-size="12">detection accuracy gains over classical baselines.</text>
+
+  <!-- Technical Metric Footer -->
+  <rect x="755" y="495" width="380" height="70" rx="8" fill="#030712" stroke="#1f2937"/>
+  <text x="770" y="522" fill="#2dd4bf" font-family="monospace" font-size="11" font-weight="700">PIPELINE VERIFICATION</text>
+  <text x="770" y="542" fill="#9ca3af" font-family="monospace" font-size="11">TRECVID Protocol: Precision 1.0 · Recall 1.0</text>
+
+  <text x="45" y="650" fill="#6b7280" font-family="monospace" font-size="11">VIDEO SEGMENTATION &amp; VLM ENGINE · OPENCV + FASTAPI + MOONDREAM2 · GITHUB REPOSITORY</text>
+</svg>

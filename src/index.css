@@ -90,6 +90,9 @@ h1 em, h2 em { color: var(--lime); font-family: Georgia, "Times New Roman", seri
 .bg-violet { background: linear-gradient(135deg, #5b3dff, #8d75ff); }
 .bg-lime { background: linear-gradient(135deg, #7a9c1e, #a5cc31); }
 .bg-orange { background: linear-gradient(135deg, #e65c2f, #ff875c); }
+.bg-cyan { background: linear-gradient(135deg, #0891b2, #06b6d4); }
+.bg-teal { background: linear-gradient(135deg, #0f766e, #14b8a6); }
+.bg-emerald { background: linear-gradient(135deg, #047857, #10b981); }
 .showcase-title-bg { color: rgba(255,255,255,0.9); font-size: clamp(2.5rem, 4vw, 4rem); font-weight: 400; text-align: right; margin: 0; padding-bottom: 40px; letter-spacing: -0.03em; }
 .showcase-main-img { width: 100%; border-radius: 16px; object-fit: cover; box-shadow: 0 30px 60px rgba(0,0,0,0.3); margin-top: auto; }
 .project-showcase-right { display: flex; flex-direction: column; padding-top: 10px; }
